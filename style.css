@@ -1,0 +1,128 @@
+/* variables */
+:root {
+    --violet: hsl(263, 55%, 52%);
+    --gray-blue: hsl(217, 19%, 35%);
+    --dark-blue-00: hsl(219, 29%, 14%);
+    --dark-blue-50: hsl(219, 29%, 14%, 0.5);
+    --dark-blue-70: hsl(219, 29%, 14%, 0.7);
+    --white-00: hsl(0, 0%, 100%);
+    --white-50: hsla(0, 0%, 100%, 0.5);
+    --white-70: hsla(0, 0%, 100%, 0.7);
+
+    --light-gray: hsl(0, 0%, 81%);
+    --grayish-blue: hsl(210, 46%, 95%);
+
+    --ff-main: "Barlow Semi Condensed", sans-serif;
+    --fs-main: 0.8125rem;
+    --fw-regular: 500;
+    --fw-bold: 600;
+  }
+
+  /* utilities */
+  .sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+  .clr-white {
+    color: var(--white-00);
+    span {
+      color: var(--white-50);
+    }
+    p:last-of-type {
+      color: var(--white-70);
+    }
+  }
+  .clr-dark {
+    color: var(--dark-blue-00);
+    span {
+      color: var(--dark-blue-50);
+    }
+    p:last-of-type {
+      color: var(--dark-blue-70);
+    }
+  }
+  /* composition */
+  body {
+    background-color: var(--grayish-blue);
+    font-family: var(--ff-main);
+    font-size: var(--fs-main);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  main {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
+  .card {
+    padding: 10px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
+    .card_top {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      h2 {
+        font-size: 1.125rem;
+      }
+    }
+  }
+  .attribution {
+    font-size: 13px;
+    text-align: center;
+    a {
+      color: hsl(231, 85%, 62%);
+      text-decoration: none;
+    }
+    a:hover {
+      color: hsl(323, 81%, 54%);
+    }
+  }
+  /* exceptions */
+  .daniel {
+    background-color: var(--violet);
+    grid-area: daniel;
+  }
+  .jonathan {
+    background-color: var(--gray-blue);
+    grid-area: jonathan;
+  }
+  .jeanette {
+    background-color: var(--white-00);
+    grid-area: jeanette;
+  }
+  .patrick {
+    background-color: var(--dark-blue-00);
+    grid-area: patrick;
+  }
+  .kira {
+    background-color: var(--white-00);
+    grid-area: kira;
+  }
+
+  @media screen and (max-width: 480px) {
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
